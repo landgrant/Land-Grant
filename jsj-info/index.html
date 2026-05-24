@@ -1,0 +1,372 @@
+<!doctype html>                             
+  <html lang="en">                        
+  <head>
+  <meta charset="utf-8">                                                                                                                                   
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strawberry Jam 2026 · Land-Grant × Jeni's</title>                                                                                                 
+  <link rel="stylesheet" href="https://use.typekit.net/kdf5ipr.css">
+  <style>                                     
+    :root {                                                                                                                                                
+      --cream:      #FFE3D2;
+      --cream-2:    #FFD6BE;                                                                                                                               
+      --orange:     #ff4814;                             
+      --orange-ink: #d83a0d;                                                                                                                               
+      --teal:       #50c0ae;                                                                                                                               
+      --teal-ink:   #3aa897;              
+      --ink:        #1A0E08;                                                                                                                               
+      --brand-font: 'Futura Bold','Futura PT Bold','futura-pt',Futura,'Trebuchet MS',Helvetica,Arial,sans-serif;                                           
+    }                                         
+    * { box-sizing: border-box; }                                                                                                                          
+    html, body {                                                                                                                                           
+      margin: 0; padding: 0;                                                                                                                               
+      background: var(--cream);                                                                                                                            
+      color: var(--orange);                                                                                                                                
+      font-family: var(--brand-font);                                                                                                                      
+      font-weight: 700;
+      letter-spacing: 0.005em;                                                                                                                             
+      -webkit-font-smoothing: antialiased;               
+    }                                     
+    .top-bar { height: 14px; background: #000; }
+    .container { max-width: 920px; margin: 0 auto; padding: 2rem 1.5rem 4rem; position: relative; z-index: 10; }                                           
+                                              
+    /* Page heading */                                                                                                                                     
+    .page-heading { text-transform: uppercase; }                                                                                                           
+    .page-heading .top {                                                                                                                                   
+      font-size: clamp(2.5rem, 7vw, 5rem);                                                                                                                 
+      line-height: 0.95;                                                                                                                                   
+      color: var(--orange);                                                                                                                                
+      letter-spacing: -0.01em;
+    }                                                                                                                                                      
+    .page-heading .bottom {                              
+      font-size: clamp(0.9rem, 1.8vw, 1.25rem);                                                                                                            
+      color: var(--teal);                                
+      padding-top: 0.4rem;                
+    }
+    .top-rule { height: 3px; background: var(--teal); margin: 0.9rem 0 1.6rem; }                                                                           
+                                          
+    /* Down banner — Happy-Hour-style */                                                                                                                   
+    .down-banner {                                                                                                                                         
+      background: #fff;
+      border: 3px solid var(--teal);                                                                                                                       
+      border-radius: 12px;                               
+      padding: 1rem 1.4rem;                                                                                                                                
+      color: var(--orange);                              
+      text-transform: uppercase;                                                                                                                           
+      font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+      margin-bottom: 2rem;                                                                                                                                 
+    }                                                    
+    .down-banner .schedule { color: var(--teal); padding-left: 0.4rem; }                                                                                   
+                                              
+    /* Section headings */                                                                                                                                 
+    h2.section {                                         
+      text-transform: uppercase;                                                                                                                           
+      color: var(--orange);                   
+      font-size: clamp(1.8rem, 4vw, 3rem);                                                                                                                 
+      line-height: 1;                                    
+      margin: 2.5rem 0 0.6rem;                                                                                                                             
+      letter-spacing: -0.005em;               
+    }                                                                                                                                                      
+    h2.section + .top-rule { margin: 0.4rem 0 1.4rem; }  
+                                                                                                                                                           
+    /* Stats pill row */                  
+    .stats-pill {                                                                                                                                          
+      display: flex;                                                                                                                                       
+      border: 3px solid var(--orange);
+      border-radius: 999px;                                                                                                                                
+      overflow: hidden;                                  
+      margin: 1.2rem 0 2rem;
+    }                                                                                                                                                      
+    .stats-pill > div {
+      flex: 1;                                                                                                                                             
+      color: var(--orange);                              
+      text-align: center;                 
+      padding: 0.9rem 0.5rem;
+      border-right: 3px solid var(--orange);                                                                                                               
+      text-transform: uppercase;              
+      font-size: clamp(0.9rem, 1.6vw, 1.2rem);                                                                                                             
+      line-height: 1.1;                                  
+    }                                                                                                                                                      
+    .stats-pill > div:last-child { border-right: none; }
+    .stats-pill .n {                                                                                                                                       
+      display: block;                                                                                                                                      
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      line-height: 1;                                                                                                                                      
+      margin-bottom: 0.15rem;                            
+    }
+                                                                                                                                                           
+    /* Card grid (vendors, food trucks) */    
+    .grid {                                                                                                                                                
+      display: grid;                                     
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));                                                                                        
+      gap: 0.9rem;                            
+    }                                                                                                                                                      
+    .card {                                              
+      border: 3px solid var(--orange);                                                                                                                     
+      border-radius: 14px;
+      padding: 1rem 1.1rem;                                                                                                                                
+      background: var(--cream);                          
+    }                                     
+    .card .name {
+      text-transform: uppercase;                                                                                                                           
+      color: var(--orange);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);                                                                                                               
+      line-height: 1.05;                                 
+      letter-spacing: -0.005em;
+    }                                                                                                                                                      
+    .card .desc {                         
+      text-transform: uppercase;                                                                                                                           
+      color: var(--teal);                                                                                                                                  
+      font-size: clamp(0.85rem, 1.4vw, 1rem);
+      margin-top: 0.3rem;                                                                                                                                  
+      line-height: 1.15;                                 
+    }
+                                                                                                                                                           
+    /* Signature drink card (highlighted with teal accent) */
+    .drinks {                                                                                                                                              
+      border: 3px solid var(--orange);                   
+      border-left: 8px solid var(--teal);                                                                                                                  
+      border-radius: 14px;
+      padding: 1.2rem 1.4rem;                                                                                                                              
+      background: var(--cream-2);                        
+    }
+    .drinks ul { list-style: none; padding: 0; margin: 0; }                                                                                                
+    .drinks li {                              
+      text-transform: uppercase;                                                                                                                           
+      color: var(--orange);                              
+      font-size: clamp(1rem, 1.8vw, 1.25rem);                                                                                                              
+      padding: 0.5rem 0;                      
+      border-bottom: 3px dashed var(--teal);                                                                                                               
+      line-height: 1.2;                                  
+    }                                                                                                                                                      
+    .drinks li:last-child { border-bottom: none; }
+    .drinks li .sub { display: block; color: var(--teal); font-size: 0.7em; margin-top: 0.15rem; }                                                         
+                                                                                                                                                           
+    /* Music lineup */                    
+    .day-card {                                                                                                                                            
+      border: 3px solid var(--orange);                                                                                                                     
+      border-radius: 14px;
+      padding: 1.1rem 1.4rem;                                                                                                                              
+      margin-bottom: 1rem;                               
+      background: var(--cream);
+    }                                                                                                                                                      
+    .day-title {
+      text-transform: uppercase;                                                                                                                           
+      color: var(--orange);                                                                                                                                
+      font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+      margin-bottom: 0.6rem;                                                                                                                               
+      line-height: 1;                                                                                                                                      
+    }                                                                                                                                                      
+    .set {                                                                                                                                                 
+      display: flex;                                                                                                                                       
+      align-items: baseline;
+      padding: 0.5rem 0;
+      border-bottom: 3px solid var(--teal);
+      text-transform: uppercase;                                                                                                                           
+    }            
+    .set:last-child { border-bottom: none; }                                                                                                               
+    .set-time {                       
+      color: var(--teal);
+      min-width: 5.5rem;                                                                                                                                   
+      font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+    }                                                                                                                                                      
+    .set-name {                       
+      color: var(--orange);                                                                                                                                
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      line-height: 1.05;
+    }
+
+    /* Inline jeni's wordmark — text fallback in dark green script                                                                                         
+       until jeni.png is available, then swap to <img class="jenis-logo"> */
+    .jenis-logo {                                                                                                                                          
+      font-family: 'Brush Script MT','Lucida Handwriting',cursive;                                                                                         
+      color: #1b3d2f;
+      font-style: italic;                                                                                                                                  
+      font-weight: 400;               
+      text-transform: none;                                                                                                                                
+      font-size: 1.15em;                                                                                                                                   
+      letter-spacing: -0.02em;
+      vertical-align: baseline;                                                                                                                            
+    }                                 
+    img.jenis-logo {
+      font-family: inherit; color: inherit; font-style: normal;                                                                                            
+      height: 1.1em; width: auto; vertical-align: middle; margin: 0 0.05em;                                                                                
+    }                                                                                                                                                      
+                                                                                                                                                           
+    /* Footer */                      
+    footer {
+      margin-top: 3rem; padding-top: 1.5rem;                                                                                                               
+      border-top: 3px solid var(--teal);
+      text-align: center;                                                                                                                                  
+      color: var(--teal);                                                                                                                                  
+      text-transform: uppercase; 
+      font-size: 0.9rem;                                                                                                                                   
+    }                                 
+
+    /* Flying strawberries */
+    .berry-container { pointer-events: none; position: fixed; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+    .berry-behind { z-index: 1; }                                                                                                                          
+    .berry-mid    { z-index: 7; }                                                                                                                          
+    .berry-front  { z-index: 20; }                                                                                                                         
+    .berry { position: absolute; opacity: 0.55; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); }                                                         
+                                                                                                                                                           
+    .berry-path-1 { animation: berry-wave-1   16s ease-in-out infinite; }                                                                                  
+    .berry-path-2 { animation: berry-spiral-2 14s linear      infinite; }                                                                                  
+    .berry-path-3 { animation: berry-zigzag-3 18s ease-in-out infinite; }                                                                                  
+    .berry-path-4 { animation: berry-loop-4   20s linear      infinite; }
+                                                                                                                                                           
+    @keyframes berry-wave-1 {                    
+      0%   { transform: translateX(-100px) translateY(15vh) rotate(0); opacity: 0; }                                                                       
+      10%  { opacity: 0.55; }                                                                                                                              
+      25%  { transform: translateX(25vw)  translateY(10vh) rotate(45deg); }
+      50%  { transform: translateX(50vw)  translateY(25vh) rotate(180deg); }                                                                               
+      75%  { transform: translateX(75vw)  translateY(8vh)  rotate(270deg); }
+      90%  { opacity: 0.55; }                                                                                                                              
+      100% { transform: translateX(calc(100vw + 100px)) translateY(20vh) rotate(360deg); opacity: 0; }
+    }                                                                                                                                                      
+    @keyframes berry-spiral-2 {                                 
+      0%   { transform: translateX(-100px) translateY(60vh) rotate(0);   opacity: 0; }                                                                     
+      15%  { opacity: 0.65; }                                                                                                                              
+      25%  { transform: translateX(20vw) translateY(40vh) rotate(90deg); }
+      50%  { transform: translateX(50vw) translateY(70vh) rotate(180deg); }                                                                                
+      75%  { transform: translateX(80vw) translateY(30vh) rotate(270deg); }
+      85%  { opacity: 0.65; }                                                                                                                              
+      100% { transform: translateX(calc(100vw + 100px)) translateY(50vh) rotate(360deg); opacity: 0; }
+    }                                                                                                                                                      
+    @keyframes berry-zigzag-3 {                                            
+      0%   { transform: translateX(-100px) translateY(80vh) rotate(0);    opacity: 0; }                                                                    
+      12%  { opacity: 0.7; }                                                                                                                               
+      20%  { transform: translateX(15vw) translateY(60vh) rotate(-20deg); }
+      40%  { transform: translateX(35vw) translateY(85vh) rotate(20deg);  }                                                                                
+      60%  { transform: translateX(60vw) translateY(55vh) rotate(-20deg); }
+      80%  { transform: translateX(85vw) translateY(80vh) rotate(20deg);  }                                                                                
+      88%  { opacity: 0.7; }                                                
+      100% { transform: translateX(calc(100vw + 100px)) translateY(65vh) rotate(0); opacity: 0; }                                                          
+    }                                                                     
+    @keyframes berry-loop-4 {                                                                                                                              
+      0%    { transform: translateX(-100px) translateY(40vh) rotate(0);   opacity: 0; }                                                                    
+      10%   { opacity: 0.5; }                                             
+      25%   { transform: translateX(25vw) translateY(30vh) rotate(120deg); }                                                                               
+      37.5% { transform: translateX(40vw) translateY(20vh) rotate(180deg); }
+      50%   { transform: translateX(50vw) translateY(40vh) rotate(240deg); }                                                                               
+      62.5% { transform: translateX(60vw) translateY(60vh) rotate(300deg); }  
+      75%   { transform: translateX(75vw) translateY(45vh) rotate(360deg); }                                                                               
+      90%   { opacity: 0.5; }                                                      
+      100%  { transform: translateX(calc(100vw + 100px)) translateY(35vh) rotate(420deg); opacity: 0; }                                                    
+    }                                                                                   
+  </style>                                                                                                                                                 
+  </head>                                                                                     
+  <body>                                                                                                                                                   
+                                                                                                                                          
+                                                                                                          
+  <div class="top-bar"></div>                                                                                                                              
+                                      
+  <div class="container">
+
+    <div class="page-heading">                                                                                                                             
+      <div class="top">Strawberry Jam 2026</div>                                                             
+    </div>                                                                                                                                                 
+    <div class="top-rule"></div>      
+    <div class="page-heading">
+      <div class="bottom">May 23–24 · Land-Grant Campus, Columbus OH</div>                                                                                 
+    </div>                                                                                                      
+                                                                                                                                                           
+    <div class="down-banner" style="margin-top: 1.6rem;">                                                       
+      Our website is down right now —                                                                                                                      
+      <span class="schedule">All festival info is below. Cheers!</span>
+    </div>                                                                                                                                                 
+                                                                                                                
+    <p style="text-transform: uppercase; color: var(--orange); font-size: clamp(1rem, 1.8vw, 1.2rem); line-height: 1.3;">                                  
+      Taking over Land-Grant's full campus — plus Town Street, Chappel Alley &amp; McDowell.                     
+    </p>                                                                                                                                                   
+                                                                                                                      
+    <div class="stats-pill">                                                                                                                               
+      <div><span class="n">16</span>Food Trucks</div>
+      <div><span class="n">27</span>Makers</div>                                                                                                           
+      <div><span class="n">7</span>Desserts</div>                                                                        
+      <div><span class="n">7</span>Kids Zone</div>                                                                                                         
+    </div>                                                                                                                   
+    <p align="center"><img src="JSJ-2026-Map-Horz.png" style="width:100%;height:auto;"></p>  
+        <p align="center"><img src="LG-JSJ-2026-Social-Lineups-Info-parking.png" style="width:100%;height:auto;"></p>                                                                                                                     
+                                                                                                                   
+    <h2 class="section">🍓 Drinks</h2>                                                                                                                     
+    <div class="top-rule"></div>                                                                                               
+    <div class="drinks">                                                                                                                                   
+      <ul>                            
+        <li>Land-Grant × <span class="jenis-logo">jeni's</span> Splendid<br><span class="sub">Strawberry Rhubarb Ale</span></li>
+        <li>Strawberry Lemonade <span class="sub">+ Strawberry Margarita</span></li>                                                                       
+        <li>Housemade Non-Alcoholic Strawberry Lemonade</li>                                                                                               
+        <li>12-Foot Blow-Up Lemonade Stand <span class="sub">Souvenir cups available</span></li>                                                           
+      </ul>                                                                                                                                                
+    </div>                                                                                                                                                 
+                                                                                                                                                           
+    <h2 class="section">Desserts</h2> 
+    <div class="top-rule"></div>                                                                                                                         
+    <div class="grid">                                                                                                                                     
+      <div class="card"><div class="name"><span class="jenis-logo">jeni's</span> Ice Cream</div><div class="desc">Strawberry Buttermilk Ice Cream + More
+  Favorites</div></div>                                                                                                                                    
+      <div class="card"><div class="name">Hirsch Fruit Farm</div><div class="desc">Freshly Picked Strawberries</div></div>
+      <div class="card"><div class="name">Fox in the Snow</div><div class="desc">Strawberry Shortcake with <span class="jenis-logo">jeni's</span>
+  Strawberry Buttermilk Ice Cream</div></div> 
+      <div class="card"><div class="name">Bite This by Annie</div><div class="desc">Baked Goods</div></div>                                              
+      <div class="card"><div class="name">The Buckeye Lady</div><div class="desc">Strawberry-Stuffed Buckeyes</div></div>                                  
+      <div class="card"><div class="name">Cotton Sugar Co.</div><div class="desc">Strawberry Cotton Candy</div></div>                                    
+      <div class="card"><div class="name">Callin Your Bluff Coffee</div><div class="desc">Specialty Coffee Drinks</div></div>                              
+      <div class="card"><div class="name">Love Riley</div><div class="desc">Strawberry Tiramisu Brownie + More</div></div>                                 
+      <div class="card"><div class="name">Rollhouse Coffee &amp; Bake Shop</div><div class="desc">Cold Brew &amp; Cinnamon Rolls</div></div>               
+    </div>                                                                                                                                                 
+                                                                                                                                                           
+    <h2 class="section">Food Trucks</h2>                                                                                                                   
+    <div class="top-rule"></div>                                                                                                                           
+    <p style="text-transform: uppercase; color: var(--teal); font-size: clamp(0.85rem, 1.4vw, 1rem); margin: -0.4rem 0 1rem;">                             
+      Each truck serves special strawberry-inspired items alongside their traditional menu.                                                                
+    </p>                                                                                                                                                   
+    <div class="grid">                                                                                                                                     
+      <div class="card"><div class="name">Ray Ray's</div><div class="desc">BBQ</div></div>
+      <div class="card"><div class="name">Tortilla Street Food</div><div class="desc">Mexican</div></div>                                                
+      <div class="card"><div class="name">Forking Pierogis</div><div class="desc">Pierogies</div></div>                                                    
+      <div class="card"><div class="name">Hai Poke</div><div class="desc">Poke</div></div>
+      <div class="card"><div class="name">Buck City Sammies</div><div class="desc">Sandwiches</div></div>                                                  
+      <div class="card"><div class="name">Cheffy Dawg</div><div class="desc">Hot Dogs</div></div>                                                        
+      <div class="card"><div class="name">Schmidt's Sausage House</div><div class="desc">German</div></div>                                                
+      <div class="card"><div class="name">Zaki Mediterranean Grill</div><div class="desc">Mediterranean</div></div>                                        
+      <div class="card"><div class="name">The Tasty Good</div><div class="desc">Chicken Tenders</div></div>                                                
+      <div class="card"><div class="name">Cousin's Maine Lobster</div><div class="desc">Lobster Rolls</div></div>                                          
+      <div class="card"><div class="name">Donna's Delicious Dozen</div><div class="desc">Donuts + Coffee</div></div>                                       
+      <div class="card"><div class="name">Pretzel Shop</div><div class="desc">Handcrafted Pretzels</div></div>                                             
+      <div class="card"><div class="name">McGinnis' Grill</div><div class="desc">Sandwiches</div></div>                                                    
+      <div class="card"><div class="name">Tito's Asian Kitchen</div><div class="desc">Modern Asian Cuisine</div></div>                                     
+      <div class="card"><div class="name">The Pizza Rover</div><div class="desc">Wood-Fired Pizza</div></div>                                              
+      <div class="card"><div class="name">Jetpack's Burger Truck</div><div class="desc">Hamburgers</div></div>                                             
+    </div>                                                                                                                                                 
+                                                                                                                                                           
+    <h2 class="section">Music Lineup</h2>                                                                                                                  
+    <div class="top-rule"></div>                                                                                                                           
+                                                                                                                                                           
+    <div class="day-card">                                                                                                                                 
+      <div class="day-title">Saturday · May 23</div>                                                                                                       
+      <div class="set"><span class="set-time">11:00a</span><span class="set-name">The Shazzbots</span></div>                                               
+      <div class="set"><span class="set-time">12:30p</span><span class="set-name">Hannah Hampton</span></div>
+      <div class="set"><span class="set-time">2:00p</span><span class="set-name">The Fair Weathered</span></div>                                         
+      <div class="set"><span class="set-time">3:30p</span><span class="set-name">Buckeye Funk</span></div>                                                 
+      <div class="set"><span class="set-time">5:00p</span><span class="set-name">Three10</span></div>
+      <div class="set"><span class="set-time">6:30p</span><span class="set-name">DJ J. Testarossa</span></div>                                             
+    </div>                                                                                                                                                 
+                                                                                                                                                           
+    <div class="day-card">                                                                                                                                 
+      <div class="day-title">Sunday · May 24</div>                                                                                                         
+      <div class="set"><span class="set-time">11:00a</span><span class="set-name">The Shazzbots</span></div>                                               
+      <div class="set"><span class="set-time">12:30p</span><span class="set-name">Chandler Carter</span></div>                                             
+      <div class="set"><span class="set-time">2:00p</span><span class="set-name">The Fair Weathered</span></div>                                           
+      <div class="set"><span class="set-time">3:30p</span><span class="set-name">Buckeye Funk</span></div>
+      <div class="set"><span class="set-time">5:00p</span><span class="set-name">Three10</span></div>                                                      
+    </div>                                                                                                                                               
+                                                                                                                                                           
+    <footer>                                                                                                                                             
+      Land-Grant Brewing · Columbus, OH · landgrantbrewing.com                                                                                             
+    </footer>                                                                                                                                              
+                                                                                                                                                           
+  </div>                                                                                                                                                   
+                                                                                                                                               
+                                  
+  </body>                                                                                                                                                  
+  </html>   
