@@ -197,32 +197,66 @@
 
     /* Reservations */
     .reservations {
-      background: var(--black);
-      color: var(--cream);
+      background: var(--cream);
+      color: var(--ink);
       padding: 56px 20px;
+      border-top: 1px solid var(--line);
     }
     .reservations .inner { max-width: 1080px; margin: 0 auto; }
-    .reservations h2 { color: #fff; text-align: center; }
-    .reservations .lead { color: #d4ccba; }
+    .reservations h2 { text-align: center; }
+    .reservations .lead { color: var(--muted); }
 
     .res-group { margin-top: 40px; }
-    .res-group h3 {
-      color: var(--cream);
+    .res-group > h3 {
+      color: var(--black);
       font-size: 1.35rem;
-      border-bottom: 1px solid #3a3a3a;
+      border-bottom: 2px solid var(--black);
       padding-bottom: 8px;
       margin-bottom: 18px;
     }
+    .res-subgroup { margin-top: 22px; }
+    .res-subgroup h4 {
+      color: var(--muted);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      margin: 0 0 12px;
+    }
     .res-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 14px;
     }
-    .xola-checkout {
-      background: var(--cream);
+    .res-item {
+      background: #fff;
       color: var(--ink);
-      border-radius: 4px;
-      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 18px 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .res-item .res-title {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-size: 1rem;
+      line-height: 1.25;
+      color: var(--black);
+    }
+    .res-item .res-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: -4px;
+    }
+    .res-item .xola-checkout {
+      margin-top: auto;
+      background: transparent;
+      padding: 0;
     }
 
     /* Parking */
@@ -424,44 +458,134 @@
     <p class="lead">Reserve your spot below. Checkout windows open in a secure popup powered by Xola.</p>
 
     <div class="res-group">
-      <h3>Cornhole League</h3>
-      <div class="res-grid">
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="67c0c9f30325eee73e0b64ef"></div>
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="67c0cce5b72f7210f80cd097"></div>
+      <h3>Summer Leagues</h3>
+
+      <div class="res-subgroup">
+        <h4>Pickleball Leagues — Gravity Park</h4>
+        <div class="res-grid">
+          <div class="res-item">
+            <div class="res-title">Beginner Pickleball League</div>
+            <div class="res-meta">Mondays, Tuesdays, or Wednesdays · Gravity Park · new players welcome</div>
+            <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="669e84818ab098198f0fd767"></div>
+          </div>
+          <div class="res-item">
+            <div class="res-title">Competitive Pickleball League</div>
+            <div class="res-meta">Mondays, Tuesdays, or Wednesdays · Gravity Park · experienced players</div>
+            <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="669fd93d01a60d01be028dfe"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="res-subgroup">
+        <h4>Cornhole League — Gravity Park</h4>
+        <div class="res-grid">
+          <div class="res-item">
+            <div class="res-title">Monday Cornhole — Beginner Division</div>
+            <div class="res-meta">8 weeks · Mondays · Gravity Park</div>
+            <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="67c0c9f30325eee73e0b64ef"></div>
+          </div>
+          <div class="res-item">
+            <div class="res-title">Monday Cornhole — Intermediate Division</div>
+            <div class="res-meta">8 weeks · Mondays · Gravity Park</div>
+            <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="67c0cce5b72f7210f80cd097"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="res-subgroup">
+        <h4>3v3 Basketball — Gravity Park</h4>
+        <div class="res-grid">
+          <div class="res-item">
+            <div class="res-title">Beer League 3v3 Basketball</div>
+            <div class="res-meta">Wednesdays · Gravity Park</div>
+            <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="669fdbae478e3b484d04b9b1"></div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="res-group">
-      <h3>3v3 Basketball League</h3>
-      <div class="res-grid">
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="669fdbae478e3b484d04b9b1"></div>
+      <h3>Pickleball Court Rentals &amp; Bundles</h3>
+
+      <div class="res-subgroup">
+        <h4>Court Rentals — Gravity Park</h4>
+        <div class="res-grid">
+          <div class="res-item">
+            <div class="res-title">1-Hour Pickleball Court Rental</div>
+            <div class="res-meta">Gravity Park</div>
+            <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="65f0890c9deecb90290c91d6"></div>
+          </div>
+          <div class="res-item">
+            <div class="res-title">2-Hour Pickleball Court Rental</div>
+            <div class="res-meta">Gravity Park</div>
+            <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="67acb7e58697061454029123"></div>
+          </div>
+          <div class="res-item">
+            <div class="res-title">3-Hour Pickleball Court Rental</div>
+            <div class="res-meta">Gravity Park</div>
+            <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="67acba1df4f8536fc408f588"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="res-subgroup">
+        <h4>Bundle &amp; Save 20% — Court + Private Party Tent</h4>
+        <div class="res-grid">
+          <div class="res-item">
+            <div class="res-title">2-Hour Pickleball + Private Party Tent</div>
+            <div class="res-meta">Bundle &amp; save 20% · Gravity Park</div>
+            <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-package="67acc251fcea11cf9908f0da"></div>
+          </div>
+          <div class="res-item">
+            <div class="res-title">3-Hour Pickleball + Private Party Tent</div>
+            <div class="res-meta">Bundle &amp; save 20% · Gravity Park</div>
+            <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-package="67acc2fcae4c48ed8d007d81"></div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="res-group">
-      <h3>Pickleball League</h3>
+      <h3>Beer Garden Cabanas</h3>
+      <p style="margin: 0 0 18px; color: var(--muted); font-size: 0.95rem;">Turf-area cabana with TV, QR-code ordering, and drink delivery.</p>
       <div class="res-grid">
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="669e84818ab098198f0fd767"></div>
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="669fd93d01a60d01be028dfe"></div>
+        <div class="res-item">
+          <div class="res-title">2-Hour Turf Cabana</div>
+          <div class="res-meta">TV · QR ordering · drink delivery · Beer Garden</div>
+          <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="681e426b418b0a1c220b613f"></div>
+        </div>
+        <div class="res-item">
+          <div class="res-title">3-Hour Turf Cabana</div>
+          <div class="res-meta">TV · QR ordering · drink delivery · Beer Garden</div>
+          <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="6823cb0e57bde284b9019d7a"></div>
+        </div>
+        <div class="res-item">
+          <div class="res-title">4-Hour Turf Cabana</div>
+          <div class="res-meta">TV · QR ordering · drink delivery · Beer Garden</div>
+          <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="6823cccabe0f9edd220f3fd5"></div>
+        </div>
       </div>
     </div>
 
     <div class="res-group">
-      <h3>Cabana Reservations</h3>
+      <h3>Kickstarter Room — Semi-Private Events</h3>
       <div class="res-grid">
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="681e426b418b0a1c220b613f"></div>
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="6823cb0e57bde284b9019d7a"></div>
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="6823cccabe0f9edd220f3fd5"></div>
-      </div>
-    </div>
-
-    <div class="res-group">
-      <h3>Kickstarter Room</h3>
-      <div class="res-grid">
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="661ee53ef7baf9e4e002cdfb"></div>
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="661ee6a6329a1558e10cdf16"></div>
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="65ee0bc1e3ae79cf130fee26"></div>
-        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="661ee74947c97c3b9307c181"></div>
+        <div class="res-item">
+          <div class="res-title">1-Hour Semi-Private Kickstarter Room</div>
+          <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="661ee53ef7baf9e4e002cdfb"></div>
+        </div>
+        <div class="res-item">
+          <div class="res-title">2-Hour Semi-Private Kickstarter Room</div>
+          <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="661ee6a6329a1558e10cdf16"></div>
+        </div>
+        <div class="res-item">
+          <div class="res-title">3-Hour Semi-Private Kickstarter Room</div>
+          <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="65ee0bc1e3ae79cf130fee26"></div>
+        </div>
+        <div class="res-item">
+          <div class="res-title">4-Hour Semi-Private Kickstarter Room</div>
+          <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="661ee74947c97c3b9307c181"></div>
+        </div>
       </div>
     </div>
   </div>
