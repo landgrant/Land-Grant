@@ -1,372 +1,507 @@
-<!doctype html>                             
-  <html lang="en">                        
-  <head>
-  <meta charset="utf-8">                                                                                                                                   
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Strawberry Jam 2026 · Land-Grant × Jeni's</title>                                                                                                 
-  <link rel="stylesheet" href="https://use.typekit.net/kdf5ipr.css">
-  <style>                                     
-    :root {                                                                                                                                                
-      --cream:      #FFE3D2;
-      --cream-2:    #FFD6BE;                                                                                                                               
-      --orange:     #ff4814;                             
-      --orange-ink: #d83a0d;                                                                                                                               
-      --teal:       #50c0ae;                                                                                                                               
-      --teal-ink:   #3aa897;              
-      --ink:        #1A0E08;                                                                                                                               
-      --brand-font: 'Futura Bold','Futura PT Bold','futura-pt',Futura,'Trebuchet MS',Helvetica,Arial,sans-serif;                                           
-    }                                         
-    * { box-sizing: border-box; }                                                                                                                          
-    html, body {                                                                                                                                           
-      margin: 0; padding: 0;                                                                                                                               
-      background: var(--cream);                                                                                                                            
-      color: var(--orange);                                                                                                                                
-      font-family: var(--brand-font);                                                                                                                      
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Land-Grant Brewing — Columbus, OH</title>
+  <meta name="description" content="Land-Grant Brewing taproom hours, weekly food trucks, upcoming events, and reservations for leagues, cabanas, and the Kickstarter Room.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #111111;
+      --cream: #f5f1e8;
+      --paper: #fbf8f1;
+      --ink: #1a1a1a;
+      --muted: #5a5a5a;
+      --accent: #c8102e;
+      --line: #d9d3c4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--ink); }
+    h1, h2, h3, h4 {
+      font-family: 'Oswald', 'Inter', sans-serif;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin: 0 0 0.5em;
+      line-height: 1.1;
+    }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    h3 { font-size: 1.2rem; }
+
+    header.site {
+      background: var(--black);
+      padding: 28px 20px;
+      text-align: center;
+    }
+    header.site img {
+      max-width: 540px;
+      width: 80%;
+      height: auto;
+      display: inline-block;
+    }
+
+    .notice {
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: 18px 20px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .notice strong { font-weight: 700; }
+
+    main { max-width: 1080px; margin: 0 auto; padding: 48px 20px; }
+
+    section { margin-bottom: 64px; }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto 24px;
+      text-align: center;
+    }
+
+    /* Hours */
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .hours-grid .day {
+      background: var(--paper);
+      padding: 16px 14px;
+      text-align: center;
+    }
+    .hours-grid .day-name {
+      font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      letter-spacing: 0.005em;                                                                                                                             
-      -webkit-font-smoothing: antialiased;               
-    }                                     
-    .top-bar { height: 14px; background: #000; }
-    .container { max-width: 920px; margin: 0 auto; padding: 2rem 1.5rem 4rem; position: relative; z-index: 10; }                                           
-                                              
-    /* Page heading */                                                                                                                                     
-    .page-heading { text-transform: uppercase; }                                                                                                           
-    .page-heading .top {                                                                                                                                   
-      font-size: clamp(2.5rem, 7vw, 5rem);                                                                                                                 
-      line-height: 0.95;                                                                                                                                   
-      color: var(--orange);                                                                                                                                
-      letter-spacing: -0.01em;
-    }                                                                                                                                                      
-    .page-heading .bottom {                              
-      font-size: clamp(0.9rem, 1.8vw, 1.25rem);                                                                                                            
-      color: var(--teal);                                
-      padding-top: 0.4rem;                
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--black);
     }
-    .top-rule { height: 3px; background: var(--teal); margin: 0.9rem 0 1.6rem; }                                                                           
-                                          
-    /* Down banner — Happy-Hour-style */                                                                                                                   
-    .down-banner {                                                                                                                                         
-      background: #fff;
-      border: 3px solid var(--teal);                                                                                                                       
-      border-radius: 12px;                               
-      padding: 1rem 1.4rem;                                                                                                                                
-      color: var(--orange);                              
-      text-transform: uppercase;                                                                                                                           
-      font-size: clamp(0.95rem, 1.6vw, 1.2rem);
-      margin-bottom: 2rem;                                                                                                                                 
-    }                                                    
-    .down-banner .schedule { color: var(--teal); padding-left: 0.4rem; }                                                                                   
-                                              
-    /* Section headings */                                                                                                                                 
-    h2.section {                                         
-      text-transform: uppercase;                                                                                                                           
-      color: var(--orange);                   
-      font-size: clamp(1.8rem, 4vw, 3rem);                                                                                                                 
-      line-height: 1;                                    
-      margin: 2.5rem 0 0.6rem;                                                                                                                             
-      letter-spacing: -0.005em;               
-    }                                                                                                                                                      
-    h2.section + .top-rule { margin: 0.4rem 0 1.4rem; }  
-                                                                                                                                                           
-    /* Stats pill row */                  
-    .stats-pill {                                                                                                                                          
-      display: flex;                                                                                                                                       
-      border: 3px solid var(--orange);
-      border-radius: 999px;                                                                                                                                
-      overflow: hidden;                                  
-      margin: 1.2rem 0 2rem;
-    }                                                                                                                                                      
-    .stats-pill > div {
-      flex: 1;                                                                                                                                             
-      color: var(--orange);                              
-      text-align: center;                 
-      padding: 0.9rem 0.5rem;
-      border-right: 3px solid var(--orange);                                                                                                               
-      text-transform: uppercase;              
-      font-size: clamp(0.9rem, 1.6vw, 1.2rem);                                                                                                             
-      line-height: 1.1;                                  
-    }                                                                                                                                                      
-    .stats-pill > div:last-child { border-right: none; }
-    .stats-pill .n {                                                                                                                                       
-      display: block;                                                                                                                                      
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      line-height: 1;                                                                                                                                      
-      margin-bottom: 0.15rem;                            
+    .hours-grid .day-hours {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 4px;
     }
-                                                                                                                                                           
-    /* Card grid (vendors, food trucks) */    
-    .grid {                                                                                                                                                
-      display: grid;                                     
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));                                                                                        
-      gap: 0.9rem;                            
-    }                                                                                                                                                      
-    .card {                                              
-      border: 3px solid var(--orange);                                                                                                                     
-      border-radius: 14px;
-      padding: 1rem 1.1rem;                                                                                                                                
-      background: var(--cream);                          
-    }                                     
-    .card .name {
-      text-transform: uppercase;                                                                                                                           
-      color: var(--orange);
-      font-size: clamp(1.1rem, 2vw, 1.4rem);                                                                                                               
-      line-height: 1.05;                                 
-      letter-spacing: -0.005em;
-    }                                                                                                                                                      
-    .card .desc {                         
-      text-transform: uppercase;                                                                                                                           
-      color: var(--teal);                                                                                                                                  
-      font-size: clamp(0.85rem, 1.4vw, 1rem);
-      margin-top: 0.3rem;                                                                                                                                  
-      line-height: 1.15;                                 
+
+    /* Weekly schedule table */
+    .schedule {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.93rem;
     }
-                                                                                                                                                           
-    /* Signature drink card (highlighted with teal accent) */
-    .drinks {                                                                                                                                              
-      border: 3px solid var(--orange);                   
-      border-left: 8px solid var(--teal);                                                                                                                  
-      border-radius: 14px;
-      padding: 1.2rem 1.4rem;                                                                                                                              
-      background: var(--cream-2);                        
+    .schedule th, .schedule td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
     }
-    .drinks ul { list-style: none; padding: 0; margin: 0; }                                                                                                
-    .drinks li {                              
-      text-transform: uppercase;                                                                                                                           
-      color: var(--orange);                              
-      font-size: clamp(1rem, 1.8vw, 1.25rem);                                                                                                              
-      padding: 0.5rem 0;                      
-      border-bottom: 3px dashed var(--teal);                                                                                                               
-      line-height: 1.2;                                  
-    }                                                                                                                                                      
-    .drinks li:last-child { border-bottom: none; }
-    .drinks li .sub { display: block; color: var(--teal); font-size: 0.7em; margin-top: 0.15rem; }                                                         
-                                                                                                                                                           
-    /* Music lineup */                    
-    .day-card {                                                                                                                                            
-      border: 3px solid var(--orange);                                                                                                                     
-      border-radius: 14px;
-      padding: 1.1rem 1.4rem;                                                                                                                              
-      margin-bottom: 1rem;                               
-      background: var(--cream);
-    }                                                                                                                                                      
-    .day-title {
-      text-transform: uppercase;                                                                                                                           
-      color: var(--orange);                                                                                                                                
-      font-size: clamp(1.3rem, 2.4vw, 1.8rem);
-      margin-bottom: 0.6rem;                                                                                                                               
-      line-height: 1;                                                                                                                                      
-    }                                                                                                                                                      
-    .set {                                                                                                                                                 
-      display: flex;                                                                                                                                       
+    .schedule th {
+      background: var(--black);
+      color: var(--cream);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.85rem;
+    }
+    .schedule td.day {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--black);
+      white-space: nowrap;
+    }
+    .schedule td .item { display: block; }
+    .schedule td .item + .item { margin-top: 4px; }
+    .schedule-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; }
+
+    /* Events */
+    .events { list-style: none; padding: 0; margin: 0; }
+    .events li {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
       align-items: baseline;
-      padding: 0.5rem 0;
-      border-bottom: 3px solid var(--teal);
-      text-transform: uppercase;                                                                                                                           
-    }            
-    .set:last-child { border-bottom: none; }                                                                                                               
-    .set-time {                       
-      color: var(--teal);
-      min-width: 5.5rem;                                                                                                                                   
-      font-size: clamp(0.95rem, 1.6vw, 1.15rem);
-    }                                                                                                                                                      
-    .set-name {                       
-      color: var(--orange);                                                                                                                                
-      font-size: clamp(1rem, 1.8vw, 1.3rem);
-      line-height: 1.05;
+    }
+    .events li:last-child { border-bottom: none; }
+    .events .date {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+    }
+    .events .title { font-weight: 500; }
+    .month-divider {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      border-top: 2px solid var(--black);
+      padding-top: 8px;
+      margin-top: 12px;
+      font-size: 0.85rem;
     }
 
-    /* Inline jeni's wordmark — text fallback in dark green script                                                                                         
-       until jeni.png is available, then swap to <img class="jenis-logo"> */
-    .jenis-logo {                                                                                                                                          
-      font-family: 'Brush Script MT','Lucida Handwriting',cursive;                                                                                         
-      color: #1b3d2f;
-      font-style: italic;                                                                                                                                  
-      font-weight: 400;               
-      text-transform: none;                                                                                                                                
-      font-size: 1.15em;                                                                                                                                   
-      letter-spacing: -0.02em;
-      vertical-align: baseline;                                                                                                                            
-    }                                 
-    img.jenis-logo {
-      font-family: inherit; color: inherit; font-style: normal;                                                                                            
-      height: 1.1em; width: auto; vertical-align: middle; margin: 0 0.05em;                                                                                
-    }                                                                                                                                                      
-                                                                                                                                                           
-    /* Footer */                      
-    footer {
-      margin-top: 3rem; padding-top: 1.5rem;                                                                                                               
-      border-top: 3px solid var(--teal);
-      text-align: center;                                                                                                                                  
-      color: var(--teal);                                                                                                                                  
-      text-transform: uppercase; 
-      font-size: 0.9rem;                                                                                                                                   
-    }                                 
+    /* Weekly callouts */
+    .callouts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .callout {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 22px;
+    }
+    .callout h3 {
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .callout p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .callout img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
 
-    /* Flying strawberries */
-    .berry-container { pointer-events: none; position: fixed; inset: 0; width: 100%; height: 100%; overflow: hidden; }
-    .berry-behind { z-index: 1; }                                                                                                                          
-    .berry-mid    { z-index: 7; }                                                                                                                          
-    .berry-front  { z-index: 20; }                                                                                                                         
-    .berry { position: absolute; opacity: 0.55; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); }                                                         
-                                                                                                                                                           
-    .berry-path-1 { animation: berry-wave-1   16s ease-in-out infinite; }                                                                                  
-    .berry-path-2 { animation: berry-spiral-2 14s linear      infinite; }                                                                                  
-    .berry-path-3 { animation: berry-zigzag-3 18s ease-in-out infinite; }                                                                                  
-    .berry-path-4 { animation: berry-loop-4   20s linear      infinite; }
-                                                                                                                                                           
-    @keyframes berry-wave-1 {                    
-      0%   { transform: translateX(-100px) translateY(15vh) rotate(0); opacity: 0; }                                                                       
-      10%  { opacity: 0.55; }                                                                                                                              
-      25%  { transform: translateX(25vw)  translateY(10vh) rotate(45deg); }
-      50%  { transform: translateX(50vw)  translateY(25vh) rotate(180deg); }                                                                               
-      75%  { transform: translateX(75vw)  translateY(8vh)  rotate(270deg); }
-      90%  { opacity: 0.55; }                                                                                                                              
-      100% { transform: translateX(calc(100vw + 100px)) translateY(20vh) rotate(360deg); opacity: 0; }
-    }                                                                                                                                                      
-    @keyframes berry-spiral-2 {                                 
-      0%   { transform: translateX(-100px) translateY(60vh) rotate(0);   opacity: 0; }                                                                     
-      15%  { opacity: 0.65; }                                                                                                                              
-      25%  { transform: translateX(20vw) translateY(40vh) rotate(90deg); }
-      50%  { transform: translateX(50vw) translateY(70vh) rotate(180deg); }                                                                                
-      75%  { transform: translateX(80vw) translateY(30vh) rotate(270deg); }
-      85%  { opacity: 0.65; }                                                                                                                              
-      100% { transform: translateX(calc(100vw + 100px)) translateY(50vh) rotate(360deg); opacity: 0; }
-    }                                                                                                                                                      
-    @keyframes berry-zigzag-3 {                                            
-      0%   { transform: translateX(-100px) translateY(80vh) rotate(0);    opacity: 0; }                                                                    
-      12%  { opacity: 0.7; }                                                                                                                               
-      20%  { transform: translateX(15vw) translateY(60vh) rotate(-20deg); }
-      40%  { transform: translateX(35vw) translateY(85vh) rotate(20deg);  }                                                                                
-      60%  { transform: translateX(60vw) translateY(55vh) rotate(-20deg); }
-      80%  { transform: translateX(85vw) translateY(80vh) rotate(20deg);  }                                                                                
-      88%  { opacity: 0.7; }                                                
-      100% { transform: translateX(calc(100vw + 100px)) translateY(65vh) rotate(0); opacity: 0; }                                                          
-    }                                                                     
-    @keyframes berry-loop-4 {                                                                                                                              
-      0%    { transform: translateX(-100px) translateY(40vh) rotate(0);   opacity: 0; }                                                                    
-      10%   { opacity: 0.5; }                                             
-      25%   { transform: translateX(25vw) translateY(30vh) rotate(120deg); }                                                                               
-      37.5% { transform: translateX(40vw) translateY(20vh) rotate(180deg); }
-      50%   { transform: translateX(50vw) translateY(40vh) rotate(240deg); }                                                                               
-      62.5% { transform: translateX(60vw) translateY(60vh) rotate(300deg); }  
-      75%   { transform: translateX(75vw) translateY(45vh) rotate(360deg); }                                                                               
-      90%   { opacity: 0.5; }                                                      
-      100%  { transform: translateX(calc(100vw + 100px)) translateY(35vh) rotate(420deg); opacity: 0; }                                                    
-    }                                                                                   
-  </style>                                                                                                                                                 
-  </head>                                                                                     
-  <body>                                                                                                                                                   
-                                                                                                                                          
-                                                                                                          
-  <div class="top-bar"></div>                                                                                                                              
-                                      
-  <div class="container">
+    /* Reservations */
+    .reservations {
+      background: var(--black);
+      color: var(--cream);
+      padding: 56px 20px;
+    }
+    .reservations .inner { max-width: 1080px; margin: 0 auto; }
+    .reservations h2 { color: #fff; text-align: center; }
+    .reservations .lead { color: #d4ccba; }
 
-    <div class="page-heading">                                                                                                                             
-      <div class="top">Strawberry Jam 2026</div>                                                             
-    </div>                                                                                                                                                 
-    <div class="top-rule"></div>      
-    <div class="page-heading">
-      <div class="bottom">May 23–24 · Land-Grant Campus, Columbus OH</div>                                                                                 
-    </div>                                                                                                      
-                                                                                                                                                           
-    <div class="down-banner" style="margin-top: 1.6rem;">                                                       
-      Our website is down right now —                                                                                                                      
-      <span class="schedule">All festival info is below. Cheers!</span>
-    </div>                                                                                                                                                 
-                                                                                                                
-    <p style="text-transform: uppercase; color: var(--orange); font-size: clamp(1rem, 1.8vw, 1.2rem); line-height: 1.3;">                                  
-      Taking over Land-Grant's full campus — plus Town Street, Chappel Alley &amp; McDowell.                     
-    </p>                                                                                                                                                   
-                                                                                                                      
-    <div class="stats-pill">                                                                                                                               
-      <div><span class="n">16</span>Food Trucks</div>
-      <div><span class="n">27</span>Makers</div>                                                                                                           
-      <div><span class="n">7</span>Desserts</div>                                                                        
-      <div><span class="n">7</span>Kids Zone</div>                                                                                                         
-    </div>                                                                                                                   
-    <p align="center"><img src="JSJ-2026-Map-Horz.png" style="width:100%;height:auto;"></p>  
-        <p align="center"><img src="LG-JSJ-2026-Social-Lineups-Info-parking.png" style="width:100%;height:auto;"></p>                                                                                                                     
-                                                                                                                   
-    <h2 class="section">🍓 Drinks</h2>                                                                                                                     
-    <div class="top-rule"></div>                                                                                               
-    <div class="drinks">                                                                                                                                   
-      <ul>                            
-        <li>Land-Grant × <span class="jenis-logo">jeni's</span> Splendid<br><span class="sub">Strawberry Rhubarb Ale</span></li>
-        <li>Strawberry Lemonade <span class="sub">+ Strawberry Margarita</span></li>                                                                       
-        <li>Housemade Non-Alcoholic Strawberry Lemonade</li>                                                                                               
-        <li>12-Foot Blow-Up Lemonade Stand <span class="sub">Souvenir cups available</span></li>                                                           
-      </ul>                                                                                                                                                
-    </div>                                                                                                                                                 
-                                                                                                                                                           
-    <h2 class="section">Desserts</h2> 
-    <div class="top-rule"></div>                                                                                                                         
-    <div class="grid">                                                                                                                                     
-      <div class="card"><div class="name"><span class="jenis-logo">jeni's</span> Ice Cream</div><div class="desc">Strawberry Buttermilk Ice Cream + More
-  Favorites</div></div>                                                                                                                                    
-      <div class="card"><div class="name">Hirsch Fruit Farm</div><div class="desc">Freshly Picked Strawberries</div></div>
-      <div class="card"><div class="name">Fox in the Snow</div><div class="desc">Strawberry Shortcake with <span class="jenis-logo">jeni's</span>
-  Strawberry Buttermilk Ice Cream</div></div> 
-      <div class="card"><div class="name">Bite This by Annie</div><div class="desc">Baked Goods</div></div>                                              
-      <div class="card"><div class="name">The Buckeye Lady</div><div class="desc">Strawberry-Stuffed Buckeyes</div></div>                                  
-      <div class="card"><div class="name">Cotton Sugar Co.</div><div class="desc">Strawberry Cotton Candy</div></div>                                    
-      <div class="card"><div class="name">Callin Your Bluff Coffee</div><div class="desc">Specialty Coffee Drinks</div></div>                              
-      <div class="card"><div class="name">Love Riley</div><div class="desc">Strawberry Tiramisu Brownie + More</div></div>                                 
-      <div class="card"><div class="name">Rollhouse Coffee &amp; Bake Shop</div><div class="desc">Cold Brew &amp; Cinnamon Rolls</div></div>               
-    </div>                                                                                                                                                 
-                                                                                                                                                           
-    <h2 class="section">Food Trucks</h2>                                                                                                                   
-    <div class="top-rule"></div>                                                                                                                           
-    <p style="text-transform: uppercase; color: var(--teal); font-size: clamp(0.85rem, 1.4vw, 1rem); margin: -0.4rem 0 1rem;">                             
-      Each truck serves special strawberry-inspired items alongside their traditional menu.                                                                
-    </p>                                                                                                                                                   
-    <div class="grid">                                                                                                                                     
-      <div class="card"><div class="name">Ray Ray's</div><div class="desc">BBQ</div></div>
-      <div class="card"><div class="name">Tortilla Street Food</div><div class="desc">Mexican</div></div>                                                
-      <div class="card"><div class="name">Forking Pierogis</div><div class="desc">Pierogies</div></div>                                                    
-      <div class="card"><div class="name">Hai Poke</div><div class="desc">Poke</div></div>
-      <div class="card"><div class="name">Buck City Sammies</div><div class="desc">Sandwiches</div></div>                                                  
-      <div class="card"><div class="name">Cheffy Dawg</div><div class="desc">Hot Dogs</div></div>                                                        
-      <div class="card"><div class="name">Schmidt's Sausage House</div><div class="desc">German</div></div>                                                
-      <div class="card"><div class="name">Zaki Mediterranean Grill</div><div class="desc">Mediterranean</div></div>                                        
-      <div class="card"><div class="name">The Tasty Good</div><div class="desc">Chicken Tenders</div></div>                                                
-      <div class="card"><div class="name">Cousin's Maine Lobster</div><div class="desc">Lobster Rolls</div></div>                                          
-      <div class="card"><div class="name">Donna's Delicious Dozen</div><div class="desc">Donuts + Coffee</div></div>                                       
-      <div class="card"><div class="name">Pretzel Shop</div><div class="desc">Handcrafted Pretzels</div></div>                                             
-      <div class="card"><div class="name">McGinnis' Grill</div><div class="desc">Sandwiches</div></div>                                                    
-      <div class="card"><div class="name">Tito's Asian Kitchen</div><div class="desc">Modern Asian Cuisine</div></div>                                     
-      <div class="card"><div class="name">The Pizza Rover</div><div class="desc">Wood-Fired Pizza</div></div>                                              
-      <div class="card"><div class="name">Jetpack's Burger Truck</div><div class="desc">Hamburgers</div></div>                                             
-    </div>                                                                                                                                                 
-                                                                                                                                                           
-    <h2 class="section">Music Lineup</h2>                                                                                                                  
-    <div class="top-rule"></div>                                                                                                                           
-                                                                                                                                                           
-    <div class="day-card">                                                                                                                                 
-      <div class="day-title">Saturday · May 23</div>                                                                                                       
-      <div class="set"><span class="set-time">11:00a</span><span class="set-name">The Shazzbots</span></div>                                               
-      <div class="set"><span class="set-time">12:30p</span><span class="set-name">Hannah Hampton</span></div>
-      <div class="set"><span class="set-time">2:00p</span><span class="set-name">The Fair Weathered</span></div>                                         
-      <div class="set"><span class="set-time">3:30p</span><span class="set-name">Buckeye Funk</span></div>                                                 
-      <div class="set"><span class="set-time">5:00p</span><span class="set-name">Three10</span></div>
-      <div class="set"><span class="set-time">6:30p</span><span class="set-name">DJ J. Testarossa</span></div>                                             
-    </div>                                                                                                                                                 
-                                                                                                                                                           
-    <div class="day-card">                                                                                                                                 
-      <div class="day-title">Sunday · May 24</div>                                                                                                         
-      <div class="set"><span class="set-time">11:00a</span><span class="set-name">The Shazzbots</span></div>                                               
-      <div class="set"><span class="set-time">12:30p</span><span class="set-name">Chandler Carter</span></div>                                             
-      <div class="set"><span class="set-time">2:00p</span><span class="set-name">The Fair Weathered</span></div>                                           
-      <div class="set"><span class="set-time">3:30p</span><span class="set-name">Buckeye Funk</span></div>
-      <div class="set"><span class="set-time">5:00p</span><span class="set-name">Three10</span></div>                                                      
-    </div>                                                                                                                                               
-                                                                                                                                                           
-    <footer>                                                                                                                                             
-      Land-Grant Brewing · Columbus, OH · landgrantbrewing.com                                                                                             
-    </footer>                                                                                                                                              
-                                                                                                                                                           
-  </div>                                                                                                                                                   
-                                                                                                                                               
-                                  
-  </body>                                                                                                                                                  
-  </html>   
+    .res-group { margin-top: 40px; }
+    .res-group h3 {
+      color: var(--cream);
+      font-size: 1.35rem;
+      border-bottom: 1px solid #3a3a3a;
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+    }
+    .res-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .xola-checkout {
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: 4px;
+      padding: 4px;
+    }
+
+    /* Parking */
+    .parking-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .parking-grid figure {
+      margin: 0;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .parking-grid img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .parking-grid figcaption {
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    /* Footer */
+    footer.site {
+      background: var(--black);
+      color: #d4ccba;
+      padding: 36px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer.site a { color: #fff; text-decoration: underline; }
+    footer.site .address { margin: 8px 0; }
+    footer.site .small { color: #8a8a8a; font-size: 0.82rem; margin-top: 12px; }
+
+    @media (max-width: 600px) {
+      main { padding: 32px 16px; }
+      section { margin-bottom: 48px; }
+      .events li { grid-template-columns: 72px 1fr; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site">
+  <img src="landgrant-horizontal.png" alt="Land-Grant Brewing">
+</header>
+
+<div class="notice">
+  Our website is temporarily down — we're working on it. The taproom is open as usual. Scroll for hours, food, events, and reservations.
+</div>
+
+<div style="background: #fff; border-bottom: 1px solid var(--line); text-align: center; padding: 12px 20px; font-size: 0.95rem;">
+  🍓 <strong>Strawberry Jam 2026</strong> with Jeni's is back —
+  <a href="/strawberry-jam" style="font-weight: 600; color: var(--accent);">festival details &amp; lineup →</a>
+</div>
+
+<main>
+
+  <section id="hours">
+    <h2 style="text-align:center;">Taproom Hours</h2>
+    <p class="lead">424 W Town Street, Columbus, OH 43215</p>
+    <div class="hours-grid">
+      <div class="day"><div class="day-name">Monday</div><div class="day-hours">3:00p – 10:00p</div></div>
+      <div class="day"><div class="day-name">Tuesday</div><div class="day-hours">3:00p – 10:00p</div></div>
+      <div class="day"><div class="day-name">Wednesday</div><div class="day-hours">3:00p – 10:00p</div></div>
+      <div class="day"><div class="day-name">Thursday</div><div class="day-hours">11:00a – 10:00p</div></div>
+      <div class="day"><div class="day-name">Friday</div><div class="day-hours">11:00a – Midnight</div></div>
+      <div class="day"><div class="day-name">Saturday</div><div class="day-hours">11:00a – Midnight</div></div>
+      <div class="day"><div class="day-name">Sunday</div><div class="day-hours">11:00a – 8:00p</div></div>
+    </div>
+  </section>
+
+  <section id="weekly">
+    <h2 style="text-align:center;">This Week at the Taproom</h2>
+    <p class="lead">Food trucks, trivia, movie nights, and the Wintergarden every day of the week.</p>
+    <div class="schedule-wrap">
+      <table class="schedule">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Hours</th>
+            <th>Food</th>
+            <th>What's Happening</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="day">Mon</td>
+            <td>3:30p – 10:00p</td>
+            <td><span class="item">Tortilla / 5:00p – 8:00p</span></td>
+            <td>Wintergarden</td>
+          </tr>
+          <tr>
+            <td class="day">Tue</td>
+            <td>3:30p – 10:00p</td>
+            <td>
+              <span class="item">Tortilla / 5:00p – 8:00p</span>
+              <span class="item">Buck City Sammies / 5:00p – 9:00p</span>
+            </td>
+            <td>Trivia + a Movie / 6:30p · Wintergarden</td>
+          </tr>
+          <tr>
+            <td class="day">Wed</td>
+            <td>3:30p – 10:00p</td>
+            <td>
+              <span class="item">Ray Ray's / 4:00p – 9:00p</span>
+              <span class="item">Buck City Sammies / 5:00p – 9:00p</span>
+            </td>
+            <td>Wintergarden</td>
+          </tr>
+          <tr>
+            <td class="day">Thu</td>
+            <td>11:00a – 10:00p</td>
+            <td>
+              <span class="item">Ray Ray's / 11:30a – 8:00p</span>
+              <span class="item">Hai Poke / 5:00p – 9:00p</span>
+            </td>
+            <td>Music Trivia / 7:00p · Wintergarden</td>
+          </tr>
+          <tr>
+            <td class="day">Fri</td>
+            <td>11:00a – Midnight</td>
+            <td>
+              <span class="item">Ray Ray's / 11:30a – 8:00p</span>
+              <span class="item">Hai Poke / 5:00p – 9:00p</span>
+              <span class="item">Tortilla / 7:00p – Late</span>
+              <span class="item">Callin' Your Bluff Coffee / 9:00a – 1:00p</span>
+            </td>
+            <td>Wintergarden</td>
+          </tr>
+          <tr>
+            <td class="day">Sat</td>
+            <td>11:00a – Midnight</td>
+            <td>
+              <span class="item">Ray Ray's / 11:30a – 8:00p</span>
+              <span class="item">Hai Poke / Noon – 9:00p</span>
+              <span class="item">Tortilla / 7:00p – Late</span>
+              <span class="item">Callin' Your Bluff Coffee / 9:00a – 1:00p</span>
+            </td>
+            <td>Wintergarden</td>
+          </tr>
+          <tr>
+            <td class="day">Sun</td>
+            <td>11:00a – 8:00p</td>
+            <td>
+              <span class="item">Ray Ray's / 11:30a – 8:00p</span>
+              <span class="item">Hai Poke / Noon – 8:00p</span>
+              <span class="item">Callin' Your Bluff Coffee / 9:00a – 1:00p</span>
+            </td>
+            <td>Wintergarden</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callouts">
+      <div class="callout">
+        <img src="trivia.png" alt="Tuesday trivia and movie night at Land-Grant">
+        <h3>Tuesday — Trivia + a Movie</h3>
+        <p>Trivia kicks off at 6:30 PM, then we roll straight into movie night around 7:30 PM on the big screen. Catch it outside in the Beer Garden, weather permitting, or cozy up inside the Taproom.</p>
+      </div>
+      <div class="callout">
+        <img src="musictrivia.jpg" alt="Thursday music trivia in the Beer Garden">
+        <h3>Thursday — Music Trivia</h3>
+        <p>Test your musical knowledge every Thursday in the Beer Garden. Hosted by What The Funk Music Trivia, starting at 7 PM. Play right from your phone — quicker answers mean more points.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="events">
+    <h2 style="text-align:center;">Upcoming Events</h2>
+    <ul class="events">
+      <li><span class="date">May 30</span><span class="title">Adult Book Fair at GP</span></li>
+      <li><span class="date">May 31</span><span class="title">Retro Screamers Futsal Tournament</span></li>
+      <li><div class="month-divider" style="grid-column: 1 / -1;">June</div></li>
+      <li><span class="date">June 5</span><span class="title">Team Barbosal Pelotonia Fundraiser — Mario Kart Band</span></li>
+      <li><span class="date">June 6</span><span class="title">USA vs. Germany Watch Party</span></li>
+      <li><span class="date">June 11 – July 19</span><span class="title">World Cup Watch Parties</span></li>
+      <li><span class="date">June 12</span><span class="title">Franklinton Friday</span></li>
+      <li><span class="date">June 12 + 19</span><span class="title">USA Games</span></li>
+      <li><span class="date">June 13</span><span class="title">Gay Softball World Series Beer Launch Party at GP</span></li>
+      <li><span class="date">June 15</span><span class="title">Crew-Backed USA Game Watch Party</span></li>
+    </ul>
+  </section>
+
+  <section id="parking">
+    <h2 style="text-align:center;">Parking &amp; Getting Here</h2>
+    <p class="lead">On-street parking in Franklinton can be limited — we recommend the nearby garages, ride-sharing, or public transit. Map below shows the closest options to the taproom.</p>
+    <div class="parking-grid">
+      <figure>
+        <img src="parking2.png" alt="Land-Grant Brewing parking map showing nearby garages and lots in Franklinton, Columbus.">
+        <figcaption>Franklinton parking guide — garages, paid lots, and COTA stops near the taproom.</figcaption>
+      </figure>
+      <figure>
+        <img src="parking.png" alt="Illustrated map showing Gravity Parking Garage, Tyler + Rich Parking Garage, and Land-Grant Main Taproom locations.">
+        <figcaption>Closest garages: Gravity (0.1 mi), Parking Garage Extension (0.2 mi), and Tyler + Rich (0.3 mi).</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="leagues">
+    <h2 style="text-align:center;">Now Open: Summer Leagues</h2>
+    <p class="lead">Sign-ups are officially open for pickleball, cornhole, and 3v3 basketball leagues at Land-Grant. Leagues kick off the week of <strong>June 15</strong> — grab your crew and lock in your team before they book up.</p>
+  </section>
+
+</main>
+
+<section class="reservations">
+  <div class="inner">
+    <h2>Reservations &amp; Sign-Ups</h2>
+    <p class="lead">Reserve your spot below. Checkout windows open in a secure popup powered by Xola.</p>
+
+    <div class="res-group">
+      <h3>Cornhole League</h3>
+      <div class="res-grid">
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="67c0c9f30325eee73e0b64ef"></div>
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="67c0cce5b72f7210f80cd097"></div>
+      </div>
+    </div>
+
+    <div class="res-group">
+      <h3>3v3 Basketball League</h3>
+      <div class="res-grid">
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="669fdbae478e3b484d04b9b1"></div>
+      </div>
+    </div>
+
+    <div class="res-group">
+      <h3>Pickleball League</h3>
+      <div class="res-grid">
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="669e84818ab098198f0fd767"></div>
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="669fd93d01a60d01be028dfe"></div>
+      </div>
+    </div>
+
+    <div class="res-group">
+      <h3>Cabana Reservations</h3>
+      <div class="res-grid">
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="681e426b418b0a1c220b613f"></div>
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="6823cb0e57bde284b9019d7a"></div>
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="6823cccabe0f9edd220f3fd5"></div>
+      </div>
+    </div>
+
+    <div class="res-group">
+      <h3>Kickstarter Room</h3>
+      <div class="res-grid">
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="661ee53ef7baf9e4e002cdfb"></div>
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="661ee6a6329a1558e10cdf16"></div>
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="65ee0bc1e3ae79cf130fee26"></div>
+        <div class="xola-checkout" data-seller="65cf6b40ba34a4bc1b0c588d" data-version="2" data-experience="661ee74947c97c3b9307c181"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div><strong>Land-Grant Brewing</strong></div>
+  <div class="address">424 W Town Street · Columbus, OH 43215</div>
+  <div>Questions? Email <a href="mailto:info@landgrantbrewing.com">info@landgrantbrewing.com</a></div>
+  <div class="small">Our main site is temporarily offline. Thanks for your patience — see you at the taproom.</div>
+</footer>
+
+<script type="text/javascript">
+  (function() {
+    var co = document.createElement("script");
+    co.type = "text/javascript";
+    co.async = true;
+    co.src = "https://xola.com/checkout.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(co, s);
+  })();
+</script>
+
+</body>
+</html>
